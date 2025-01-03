@@ -106,27 +106,32 @@ const quotes = {
 
 
 
-
 function Quote() {
-          const [currentQuote, setCurrentQuote] = useState("The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it. - Jordan Belfort");
-          const [quoteIndex, setQuoteIndex] = useState(1); // Initial quote index
-          useEffect(() => {
-                    const updateQuote = () => {
-                        const nextIndex = (quoteIndex % 100) + 1;
-                        const selectedQuoteKey = `quote${nextIndex}`;
-                        setCurrentQuote(quotes[selectedQuoteKey]);
-                        setQuoteIndex(nextIndex);
-                    };
-                
-                    setTimeout(updateQuote, 30000);  // 1 hour in milliseconds
-                }, [quoteIndex]);  // Add `quoteIndex` as a dependency
-                
-
-          return (
-                    <div>
-                              <p style={{ backgroundColor: 'white', padding: "10px", color: 'black' }}>{currentQuote}</p>
-                    </div>
-          );
-}
-
-export default Quote;
+    const storedQuoteIndex = localStorage.getItem("quoteIndex");
+    const initialQuoteIndex = storedQuoteIndex ? parseInt(storedQuoteIndex) : 1;
+    
+    const [currentQuote, setCurrentQuote] = useState(quotes[`quote${initialQuoteIndex}`]);
+    const [quoteIndex, setQuoteIndex] = useState(initialQuoteIndex);
+  
+    useEffect(() => {
+      const updateQuote = () => {
+        const nextIndex = (quoteIndex % 100) + 1;
+        const selectedQuoteKey = `quote${nextIndex}`;
+        setCurrentQuote(quotes[selectedQuoteKey]);
+        setQuoteIndex(nextIndex);
+        localStorage.setItem("quoteIndex", nextIndex); // Save the updated index to localStorage
+      };
+  
+      const timer = setTimeout(updateQuote, 30000); // Change quote every 30 seconds
+      return () => clearTimeout(timer); // Clean up the timeout on component unmount
+  
+    }, [quoteIndex]); // Add `quoteIndex` as a dependency
+  
+    return (
+      <div>
+        <p style={{ backgroundColor: 'white', padding: "10px", color: 'black' }}>{currentQuote}</p>
+      </div>
+    );
+  }
+  
+  export default Quote;

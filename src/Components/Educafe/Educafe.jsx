@@ -51,21 +51,63 @@ function Educafe() {
 
           const [currentContent, setCurrentContent] = useState(null);
           const videoRef = useRef(null);
-
           useEffect(() => {
+                    const slides = [
+                        {
+                            videoSrc: "./images/studyhall.mp4",
+                            content: (
+                                <div className="edu-cafe-pros">
+                                    <h1>Study Hall</h1>
+                                    <p>
+                                        The Study Hall is a unique space, a no-disturbance zone for self-studying and working independently. The hall is equipped with spacious cabins, power backup, ceiling fans, AC, and clean drinking water.
+                                    </p>
+                                </div>
+                            ),
+                            startTime: 0,
+                            endTime: 38,
+                        },
+                        {
+                            videoSrc: "./images/leisure.mp4",
+                            content: (
+                                <div className="edu-cafe-pros">
+                                    <h1>Cafeteria</h1>
+                                    <p>
+                                        Food for health, energy, and staying alert. The cafeteria is a self-service restaurant with healthy food, snacks, and light beverages on the counters.
+                                    </p>
+                                </div>
+                            ),
+                            startTime: 38,
+                            endTime: 48,
+                        },
+                        {
+                            videoSrc: "./images/cafe.mp4",
+                            content: (
+                                <div className="edu-cafe-pros">
+                                    <h1>Leisure Space</h1>
+                                    <p>
+                                        The leisure area is a block for discussing, chatting, resting, relaxing, and meditation. This area has books, magazines, and newspapers for entrance and competitive examinations.
+                                    </p>
+                                </div>
+                            ),
+                            startTime: 48,
+                            endTime: 58,
+                        },
+                    ];
+                
                     const intervalId = setInterval(() => {
-                              const currentTime = videoRef.current.currentTime;
-                              const currentSlide = slides.find(slide => currentTime >= slide.startTime && currentTime <= slide.endTime);
-
-                              if (currentSlide) {
-                                        setCurrentContent(currentSlide.content);
-                              } else {
-                                        setCurrentContent(null);
-                              }
+                        const currentTime = videoRef.current.currentTime;
+                        const currentSlide = slides.find(slide => currentTime >= slide.startTime && currentTime <= slide.endTime);
+                
+                        if (currentSlide) {
+                            setCurrentContent(currentSlide.content);
+                        } else {
+                            setCurrentContent(null);
+                        }
                     }, 1000);
-
+                
                     return () => clearInterval(intervalId);
-          }, [slides]);
+                }, []);
+                
 
           return (
                     <div className="edu-cafe">
@@ -119,8 +161,8 @@ function Educafe() {
                                                   <ul>
                                                             <li><a href="https://g.co/kgs/MZwhbe"><img src="./images/map.png" alt="" /></a></li>
                                                             <li><a href="https://wa.me/918974808279"><img src="./images/whatsapp.png" alt="" /></a></li>
-                                                            <li><a href="#"><img src="./images/instagram.png" alt="" /></a></li>
-                                                            <li><a href="#"><img src="./images/telegram.png" alt="" /></a></li>
+                                                            <li><a href="/"><img src="./images/instagram.png" alt="" /></a></li>
+                                                            <li><a href="/"><img src="./images/telegram.png" alt="" /></a></li>
                                                   </ul>
                                         </div>
                               </div>

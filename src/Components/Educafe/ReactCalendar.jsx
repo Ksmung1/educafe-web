@@ -38,7 +38,7 @@ const ReactCalendar = () => {
                                         <br /> <p></p>{greeting}
                               </h1>
 
-                              <h2></h2>
+                            
                     </div>
           );
 };

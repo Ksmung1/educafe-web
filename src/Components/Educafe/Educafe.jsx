@@ -65,7 +65,7 @@ function Educafe() {
                     }, 1000);
 
                     return () => clearInterval(intervalId);
-          }, []);
+          }, [slides]);
 
           return (
                     <div className="edu-cafe">

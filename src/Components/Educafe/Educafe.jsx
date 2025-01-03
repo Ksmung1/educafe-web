@@ -6,6 +6,7 @@ import ReactCalendar from "./ReactCalendar";
 import Quotes from "../DailyQuotes/Quote";
 
 function Educafe() {
+          // eslint-disable-next-line no-unused-vars
           const slides = [
                     {
                               videoSrc: "./images/studyhall.mp4",

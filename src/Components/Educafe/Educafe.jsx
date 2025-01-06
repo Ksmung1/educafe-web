@@ -115,9 +115,8 @@ function Educafe() {
                               <div className="heading animated-text">
                                         <h1>edu-cafe</h1>
                                         <Link to='https://allornothing.netlify.app/'><img src="./images/diamond.gif" alt="" /></Link>
-                                        <Link to='/edupage' ><img src="./images/coffee-cup.gif" style={{ marginRight: '120px' }} alt="" /></Link>
-                                        <Link to="/image"><img src="./images/kpop.gif" style={{ marginRight: '80px' }} alt="" /></Link>
-                                        <Link to="/nightowl"><img src="./images/owl.gif" style={{ marginRight: '40px' }} alt="" /></Link>
+                                        <Link to='/edupage' ><img src="./images/coffee-cup.gif" style={{ marginRight: '80px' }} alt="" /></Link>
+                                        <Link to="/image"><img src="./images/kpop.gif" style={{ marginRight: '40px' }} alt="" /></Link>
                               </div>
 
                               <div className="datesntime">
